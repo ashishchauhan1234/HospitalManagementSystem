@@ -1,0 +1,13 @@
+{% extends 'Main_Layout.html' %}
+{% block title %}
+    Payment Receipt
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>Payment Receipt</legend>
+        <div align="center">{{ pay }}</div>
+        Thanks for shopping with us....
+        <div><a href ="{% url 'Show_Order_Medicine' %}">Show Order Details</a></div>
+    </fieldset>
+{% endblock %}

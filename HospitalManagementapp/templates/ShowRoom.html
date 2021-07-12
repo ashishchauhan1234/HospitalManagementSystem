@@ -1,0 +1,71 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    Room Details
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Room details
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="show-table" cellSpacing='5' cellpadding="5">
+                {% if room_list %}
+                <tr>
+                    <th>id</th>
+                    <th>room no</th>
+                    <th>room type</th>
+                    <th>status</th>
+                    <th>price</th>
+                    <th>no of beds</th>
+                    <th>Action</th>
+                </tr>
+                {% for room in room_list %}
+                <tr align="center">
+                    <td align="center">{{ room.id }}.</td>
+                    <td align="right">{{ room.room_no }}</td>
+                    <td>{{ room.room_type }}</td>
+                    <td>{{ room.status }}</td>
+                    <td >{{ room.price }}</td>
+                    <td >{{ room.no_of_bed }}</td>
+                    <td >
+                        <a href="{% url 'Update_Room' room.id %}">Update </a> ||
+                        <a href="{% url 'Delete_Room' room.id %}">Delete </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <th>
+                        No Record found
+                    </th>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th colspan="4">
+                        <a href="{% url 'Room_Form' %}">Add New Room Details</a>
+                    </th>
+                    <th colspan="3">
+
+                        {% if room_list.has_previous %}
+
+                        <a href="?page=1">First</a> |
+                        <a href="?page={{ room_list.previous_page_number }}">prev</a>
+
+                        {% endif %}
+                        page {{ room_list.number }} of {{  room_list.paginator.num_pages }}
+                        {% if room_list.has_next %}
+
+                        <a href="?page={{ room_list.next_page_number }}">next</a> |
+                        <a href="?page={{ room_list.paginator.num_pages}}">Last</a>
+
+                        {% endif %}
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

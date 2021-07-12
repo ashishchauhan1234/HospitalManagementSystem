@@ -1,0 +1,79 @@
+{% extends 'Main_layout.html' %}
+{% load static %}
+{% block title %}
+    {{ title }}
+
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Admin Registration From
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="form_table" cellSpacing=10 cellpadding="5">
+                {% if success %}
+                <tr id="success_msg">
+                    <th colspan="3">
+                        {{ success }}
+                    </th>
+                </tr>
+                {% endif %}
+
+                <tr id="required_msg">
+                    <th colspan="3">
+                        <span>*</span> All fields are required
+                    </th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.name.label }}</th>
+                    <th>{{ vdf.name }}</th>
+                    <th>{{ vdf.name.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.phone_no.label }}</th>
+                    <th>{{ vdf.phone_no }}</th>
+                    <th>{{ vdf.phone_no.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.email_id.label }}</th>
+                    <th>{{ vdf.email_id }}</th>
+                    <th>{{ vdf.email_id.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.password.label }}</th>
+                    <th>{{ vdf.password }}</th>
+                    <th>{{ vdf.password.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.rePassword.label }}</th>
+                    <th>{{ vdf.rePassword }}</th>
+                    <th>{{ vdf.rePassword.errors }}</th>
+                </tr>
+                <tr>
+                <tr>
+                    <th colspan="3">&nbsp;
+                        &nbsp;
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="reset" value="Reset Form" onclick="alert('your page is refreshed')">
+                    </th>
+                    <th colspan="2">
+                        <input type="submit" value="Submit Form">
+                    </th>
+                </tr>
+           </table>
+            <div class="col-lg-12" style="text-align: center;font-weight: bold" >
+                <p>if you already registered .<span>
+                    <a href="{% url 'login' %}" style="font-size: 18px">Login</a>
+                </span>
+                </p>
+            </div>
+
+        </form>
+    </fieldset>
+
+{% endblock %}

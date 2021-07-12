@@ -1,0 +1,20 @@
+{% load static %}
+
+<!--Header part started-->
+<nav class="navbar">
+    <div class="container-fluid">
+        <div>Hospital management system</div>
+        <div class="collapse navbar-collapse" id="myNavbar" >
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'Show_Home' %}" >Home</a></li>
+                <li><a href="{% url 'Show_Contact_Details' %}" >Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'Admin_Form' %}" ><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;
+                    Login</a></li>
+                <li><a href="{% url 'logout' %}" ><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;
+                    Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

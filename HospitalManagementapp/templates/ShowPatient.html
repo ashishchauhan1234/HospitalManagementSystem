@@ -1,0 +1,85 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    Patient Details
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Patient Details
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="show-table" cellspacing='5' cellpadding="5">
+                {% if patient_list %}
+                 <tr>
+                    <th>S. No</th>
+                    <th>name</th>
+                    <th>Gender</th>
+                    <th>Date of birth</th>
+                    <th>Age</th>
+                    <th>Blood grp</th>
+                    <th>Phone no</th>
+                    <th>Address</th>
+                    <th>Date</th>
+                    <th>Disease</th>
+                    <th>Doctor</th>
+                    <th>room no</th>
+                    <th>Action</th>
+                 </tr>
+                {% for patient in patient_list %}
+                 <tr style="text-align: center; text-transform: capitalize">
+                     <td align="center" >{{ patient.id }}. </td>
+                     <td style="width: 8%">{{ patient.name }} </td>
+                     <td style="width: 8%">{{ patient.gender }} </td>
+                     <td style="width: 8%" >{{ patient.d_o_b }} </td>
+                     <td style="width: 8%" >{{ patient.age }} </td>
+                     <td style="width: 8%" >{{ patient.blood }} </td>
+                     <td style="width: 8%" >{{ patient.phone }} </td>
+                     <td style="width: 8%">{{ patient.address }} </td>
+                     <td style="width: 8%" >{{ patient.date }} </td>
+                     <td style="width: 8%">{{ patient.disease }} </td>
+                     <td style="width: 8%">{{ patient.doctor }} </td>
+                     <td style="width: 8%">{{ patient.room_no }} </td>
+                    <td style="width: 8%" >
+                        <a href="{% url 'Update_Patient' patient.id %}">Update </a> /
+                        <a href="{% url 'Delete_Patient' patient.id %}">Delete </a>
+                    </td>
+
+                 </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <th>
+                        No Record
+                    </th>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th colspan="4">
+                        <a href="{% url 'Patient_Form' %}">Add new Patient Details</a>
+                    </th>
+                    <th colspan="9">
+
+                        {% if patient_list.has_previous %}
+
+                        <a href="?page=1">First</a> |
+                        <a href="?page={{ patient_list.previous_page_number }}">prev</a>
+
+                        {% endif %}
+                        page {{ patient_list.number }} of {{  patient_list.paginator.num_pages }}
+                        {% if patient_list.has_next %}
+
+                        <a href="?page={{ patient_list.next_page_number }}">next</a> |
+                        <a href="?page={{ patient_list.paginator.num_pages}}">Last</a>
+
+                        {% endif %}
+                    </th>
+                </tr>
+
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

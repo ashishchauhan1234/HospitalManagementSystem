@@ -1,0 +1,104 @@
+{% extends 'Main_Layout.html' %}
+{% block title %}
+    Checkout form
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Checkout Form
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="form_table" cellSpacing=10 cellpadding="5">
+                {% if success %}
+                <tr id="success_msg">
+                    <th colspan="3">
+                        {{ success }}
+                    </th>
+                </tr>
+                {% endif %}
+
+                <tr id="required_msg">
+                    <th colspan="3">
+                        <span>*</span> All fields are required
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>{{ vdf.patient.label }}</th>
+                    <th>{{ vdf.patient }}</th>
+                    <th>{{ vdf.patient.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.gender.label }}</th>
+                    <th>{{ vdf.gender }}</th>
+                    <th>{{ vdf.gender.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.d_o_b.label }}</th>
+                    <th>{{ vdf.d_o_b }}</th>
+                    <th>{{ vdf.d_o_b.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.age.label }}</th>
+                    <th>{{ vdf.age }}</th>
+                    <th>{{ vdf.age.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.contact.label }}</th>
+                    <th>{{ vdf.contact }}</th>
+                    <th>{{ vdf.contact.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.address.label }}</th>
+                    <th>{{ vdf.address }}</th>
+                    <th>{{ vdf.address.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.date_of_adm.label }}</th>
+                    <th>{{ vdf.date_of_adm }} </th>
+                    <th>{{ vdf.date_of_adm.errors }}</th>
+                </tr>
+
+                <tr>
+                    <th>{{ vdf.disease.label }}</th>
+                    <th>{{ vdf.disease }}</th>
+                    <th>{{ vdf.disease.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.room_no.label }}</th>
+                    <th>{{ vdf.room_no }}</th>
+                    <th>{{ vdf.room_no.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.total_bill.label }}</th>
+                    <th>{{ vdf.total_bill }}</th>
+                    <th>{{ vdf.total_bill.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.date_of_dis.label }}</th>
+                    <th>{{ vdf.date_of_dis }}</th>
+                    <th>{{ vdf.date_of_dis.errors }}</th>
+                </tr>
+
+                <tr>
+                    <th colspan="3">&nbsp;
+                        &nbsp;
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="reset" value="Reset Form" onclick="alert('your page is refreshed')">
+                    </th>
+                    <th>
+                        <input type="submit" value="Pay Bill" onclick="alert('Check date before submit')">
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Checkout_Details' %}">Show Checkout details</a>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

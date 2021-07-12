@@ -1,0 +1,82 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    Admin form
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Admin Registration From
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="show-table" cellSpacing='5' cellpadding="5" width="100%">
+                {% if admin_list %}
+                <tr>
+                    <th>
+                        S. No
+                    </th>
+                    <th>
+                        Admin name
+                    </th>
+                    <th>
+                        phone_no
+                    </th>
+                    <th>
+                        email_id
+                    </th>
+                    <th>
+                        password
+                    </th>
+                </tr>
+                {% for admin in admin_list %}
+                <tr>
+                    <td>
+                        {{ admin.id }}.
+                    </td>
+                    <td>
+                        {{ admin.name }}
+                    </td>
+                    <td>
+                        {{ admin.phone_no }}
+                    </td>
+                    <td>
+                        {{ admin.email_id }}
+                    </td>
+                    <td>
+                        {{ admin.password }}
+                    </td>
+                </tr>
+            {% endfor %}
+            {% else %}
+                <tr>
+                    <th>
+                        No admin Details Found ....
+                    </th>
+                </tr>
+            {% endif %}
+                <tr>
+                    <th colspan="2">
+                        <a href="{% url 'Admin_Form' %}">Add Admin</a>
+                    </th>
+                    <th colspan="3">
+                        {% if admin_list.has_previous %}
+                        <a href="?page=1">First</a> |
+                        <a href="?page={{ admin_list.previous_page_number }}">prev</a>
+
+                        {% endif %}
+                        page {{ admin_list.number }} of {{  admin_list.paginator.num_pages }}
+                        {% if admin_list.has_next %}
+
+                        <a href="?page={{ admin_list.next_page_number }}">next</a> |
+                        <a href="?page={{ admin_list.paginator.num_pages}}">Last</a>
+                        {% endif %}
+                    </th>
+
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

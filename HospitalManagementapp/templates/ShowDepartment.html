@@ -1,0 +1,68 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    Department Details
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Department Details
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="show-table" cellSpacing='5' cellpadding="5">
+            {% if dept_list %}
+                <tr>
+                    <th>S.No</th>
+                    <th>Department Name</th>
+                    <th>Department Head</th>
+                    <th>Action</th>
+                </tr>
+                {% for dept in dept_list %}
+                <tr>
+                    <td align="center">{{ dept.id }}.</td>
+                    <td>{{ dept.name }}</td>
+                    <td>{{ dept.head }}</td>
+                    <td align="right">
+                        <a href="{% url 'Update_Department' dept.id %}">Update </a> ||
+                        <a href="{% url 'Delete_Department' dept.id %}">Delete </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <th>
+                        No Record found
+                    </th>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <th colspan="2">
+                        <a href="{% url 'Department_Form' %}">Add New Department</a>
+                    </th>
+                    <th colspan="2">
+
+                        {% if dept_list.has_previous %}
+
+                        <a href="?page=1">First</a> |
+                        <a href="?page={{ dept_list.previous_page_number }}">prev</a>
+
+                        {% endif %}
+                        page {{ dept_list.number }} of {{  dept_list.paginator.num_pages }}
+                        {% if dept_list.has_next %}
+
+                        <a href="?page={{ dept_list.next_page_number }}">next</a> |
+                        <a href="?page={{ dept_list.paginator.num_pages}}">Last</a>
+
+                        {% endif %}
+                    </th>
+                </tr>
+
+            </table>
+        </form>
+    </fieldset>
+
+{% endblock %}

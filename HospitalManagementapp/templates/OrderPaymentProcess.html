@@ -1,0 +1,43 @@
+{% extends 'Main_Layout.html' %}
+{% block title %}
+    Payment Process
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>Proceed to payment</legend>
+        <table id="payment_table" cellpadding="5" cellspacing="5">
+            <tr>
+                <th> name </th>
+                <td> {{ paypal_dic.name }}</td>
+            </tr>
+            <tr>
+                <th>Phone no </th>
+                <td> {{ paypal_dic.phone }}</td>
+            </tr>
+            <tr>
+                <th> Amount </th>
+                <td> {{ paypal_dic.amount }} </td>
+            </tr>
+            <tr>
+                <th>Receipt no </th>
+                <td> {{ paypal_dic.receipt_no }}</td>
+            </tr>
+            <tr>
+                <th> currency code </th>
+                <td> {{ paypal_dic.currency_code }} </td>
+            </tr>
+
+            <tr id="form_render">
+                <th colspan="2">
+                    {{ form.render}}
+                </th>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <a href="{% url 'Order_Payment_Cancelled' %}">Cancel Payment</a>
+                </th>
+            </tr>
+        </table>
+    </fieldset>
+{% endblock %}

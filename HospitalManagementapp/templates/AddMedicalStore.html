@@ -1,0 +1,81 @@
+{% extends 'Main_Layout.html' %}
+{% block title %}
+    Medical Store item form
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Add Medical store item
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="form_table" cellSpacing=10 cellpadding="5">
+                 {% if success %}
+                <tr id="success_msg">
+                    <th colspan="3">
+                        {{ success }}
+                    </th>
+                </tr>
+                {% endif %}
+
+                <tr id="required_msg">
+                    <th colspan="3">
+                        <span>*</span> All fields are required
+                    </th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.name.label }}</th>
+                    <th>{{ vdf.name }}</th>
+                    <th>{{ vdf.name.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.buy_cost.label }}</th>
+                    <th>{{ vdf.buy_cost }}</th>
+                    <th>{{ vdf.buy_cost.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.sell_cost.label }}</th>
+                    <th>{{ vdf.sell_cost }}</th>
+                    <th>{{ vdf.sell_cost.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.quantity.label }}</th>
+                    <th>{{ vdf.quantity }}</th>
+                    <th>{{ vdf.quantity.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.type.label }}</th>
+                    <th>{{ vdf.type }}</th>
+                    <th>{{ vdf.type.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.mfd_date.label }}</th>
+                    <th>{{ vdf.mfd_date }}</th>
+                    <th>{{ vdf.mfd_date.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.exp_date.label }}</th>
+                    <th>{{ vdf.exp_date }}</th>
+                    <th>{{ vdf.exp_date.errors }}</th>
+                </tr>
+                <tr>
+                    <th colspan="3">&nbsp;
+                        &nbsp;
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="reset" value="Reset Form" onclick="alert('your page is refreshed')">
+                    </th>
+                    <th>
+                        <input type="submit" value="Submit Form" onclick="alert('check data before submit.')">
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Medical_Store_Details' %}">Show Medical Store details</a>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

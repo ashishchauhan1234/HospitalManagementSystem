@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout form</title>
+</head>
+<body>
+    <fieldset>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <div style = "border : 2px black solid; border-bottom : 12px black solid; border-top : 12px black
+             solid; border-radius: 20% ; padding : 15px;margin: 1%">
+               <span style="font-size: 45px"> HOSPITAL MANAGEMENT SYSTEM</span>
+                <div style="font-size: 20px; float :right">
+                    <a href="#">Login</a> /
+                    <a href="#">Registration</a>
+                </div>
+
+            </div>
+
+            <table align="center" cellSpacing=5 cellpadding="5" width="100%">
+
+                <tr>
+                    <th>
+                        Add new department
+                    </th>
+                    <th>
+                        <a href="{% url 'Department_Form' %}">Go</a>
+                    </th>
+                    <th>
+                        Show department Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Department_Details' %}">Go</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Add new doctor
+                    </th>
+                    <th>
+                        <a href="{% url 'Doctor_Form' %}">Go</a>
+                    </th>
+                    <th>
+                        Show Doctors Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Doctor_Details' %}">Go</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Add new patient
+                    </th>
+                    <th>
+                        <a href="{% url 'Patient_Form' %}">Go</a>
+                    </th>
+                    <th>
+                        Show Patient Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Patient_Details' %}">Go</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Add new room
+                    </th>
+                    <th>
+                        <a href="{% url 'Room_Form' %}">Go</a>
+                    </th>
+                    <th>
+                        Show Rooms Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Room_Details' %}">Go</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Add new Checkout Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Checkout_Form' %}">Go</a>
+                    </th>
+                <th>
+                        Show Checkout Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Checkout_Details' %}">Go</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Add new medical store
+                    </th>
+                    <th>
+                        <a href="{% url 'Medical_Store_Form' %}">Go</a>
+                    </th>
+                    <th>
+                        Show medical store Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Medical_Store_Details' %}">Go</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Add new staff member
+                    </th>
+                    <th>
+                        <a href="{% url 'Staff_Form' %}">Go</a>
+                    </th>
+                <th>
+                        Show staff Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Staff_Details' %}">Go</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Add new visitor details
+                    </th>
+                    <th>
+                        <a href="{% url 'Visitor_Form' %}">Go</a>
+                    </th>
+                <th>
+                        Show visitor Details
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Visitor_Details' %}">Go</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="reset" value="Reset Form">
+                    </th>
+                    <th colspan="2">
+                        <input type="submit" value="Submit Form">&nbsp&nbsp&nbsp; &nbsp;
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>
+</html>

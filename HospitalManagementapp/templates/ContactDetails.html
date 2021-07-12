@@ -1,0 +1,83 @@
+{% extends 'Main_Layout.html' %}
+{% block title %}
+    Checkout form
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Contact details
+        </legend>
+        {% csrf_token %}
+        <table id="contact_detail">
+            <tr>
+                <th colspan="2" id="address">Address Details :</th>
+            </tr>
+            <tr>
+                <th colspan="2">&nbsp;</th>
+            </tr>
+            <tr>
+                <th>
+                    address
+                </th>
+                <td>
+                    Vill- Mamepur,<br/>
+                    city- Meerut,<br/>
+                    PIN = 250001
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <br/>
+                    City
+                </th>
+                <td>
+                    <br/>
+                    Meerut
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <br/>
+                    State
+                </th>
+                <td >
+                    <br/>
+                    Uttar Pradesh
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">&nbsp;</th>
+            </tr>
+
+            <tr>
+                <th colspan="2" id="contact">
+                    contact Details :
+                </th>
+            </tr>
+            <tr>
+                <th colspan="2">&nbsp;</th>
+            </tr>
+            <tr>
+                <th>
+                    Phone no
+                </th>
+                <td class="col-sm-6">
+                    +91 987069XXXX
+                </td>
+            </tr>
+            <tr>
+                <th class="col-sm-6">
+                    <br/>
+                    Email id
+                </th>
+                <td class="col-sm-6">
+                    <br/>
+                    ashishchauhan4999@gmail.com
+                    <br/>
+                    ac344530@gmail.com
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+{% endblock %}

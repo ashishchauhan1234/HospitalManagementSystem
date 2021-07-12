@@ -1,0 +1,79 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    Staff Details
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Staff Details
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="show-table" cellSpacing='5' cellpadding="5" width="100%">
+                {% if s_list %}
+                <tr>
+                    <th >S. No</th>
+                    <th style=" width: 10%" >name</th>
+                    <th style=" width: 10%" >gender</th>
+                    <th style=" width: 10%" >contact</th>
+                    <th style=" width: 10%" >email</th>
+                    <th style=" width: 10%" >address</th>
+                    <th style=" width: 10%" >Qualification</th>
+                    <th style=" width: 10%" >designation</th>
+                    <th style=" width: 10%" >join date</th>
+                    <th style=" width: 10%" >salary</th>
+                    <th style=" width: 10%" >Action</th>
+                </tr>
+                {% for staff in s_list %}
+                <tr>
+                    <td >{{ staff.s_id }}.</td>
+                    <td>{{ staff.name }}</td>
+                    <td>{{ staff.gender }}</td>
+                    <td >{{ staff.contact }}</td>
+                    <td>{{ staff.email }}</td>
+                    <td>{{ staff.address }}</td>
+                    <td>{{ staff.qualification }}</td>
+                    <td>{{ staff.designation }}</td>
+                    <td>{{ staff.join_date }}</td>
+                    <td >{{ staff.salary }}</td>
+                    <td >
+                        <a href="{% url 'Update_Staff' staff.s_id %}">Update </a> ||
+                        <a href="{% url 'Delete_Staff' staff.s_id %}">Delete </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <th colspan="11">
+                        No Record
+                    </th>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th colspan="4">
+                        <a href="{% url 'Staff_Form' %}">Add new Staff Details</a>
+                    </th>
+                    <th colspan="7">
+
+                        {% if s_list.has_previous %}
+
+                        <a href="?page=1">First</a> |
+                        <a href="?page={{ s_list.previous_page_number }}">prev</a>
+
+                        {% endif %}
+                        page {{ s_list.number }} of {{  s_list.paginator.num_pages }}
+                        {% if s_list.has_next %}
+
+                        <a href="?page={{ s_list.next_page_number }}">next</a> |
+                        <a href="?page={{ s_list.paginator.num_pages}}">Last</a>
+
+                        {% endif %}
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'Main_Layout.html' %}
+{% block title %}
+    Room form
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Add new Room
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="form_table" cellSpacing=10 cellpadding="5">
+                {% if success %}
+                <tr id="success_msg">
+                    <th colspan="3">
+                        {{ success }}
+                    </th>
+                </tr>
+                {% endif %}
+                <tr id="required_msg">
+                    <th colspan="3">
+                        <span>*</span> All fields are required
+                    </th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.room_no.label }}</th>
+                    <th>{{ vdf.room_no }}</th><th>{{ vdf.room_no.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.room_type.label }}</th>
+                    <th>{{ vdf.room_type }}</th><th>{{ vdf.room_type.errors}}</th>
+                </tr>
+                <tr>
+
+                    <th>{{ vdf.status.label }}</th>
+                    <th>{{ vdf.status }}</th><th>{{ vdf.status.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.price.label }}</th>
+                    <th>{{ vdf.price }}</th><th>{{ vdf.price.errors}}</th>
+                </tr>
+                <tr>
+
+                    <th>{{ vdf.no_of_bed.label }}</th>
+                    <th>{{ vdf.no_of_bed }}</th><th>{{ vdf.no_of_bed.errors }}</th>
+                </tr>
+                <tr>
+                    <th colspan="3">&nbsp;
+                        &nbsp;
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="reset" value="Reset Form" onclick="alert('your page is refreshed')">
+                    </th>
+                    <th>
+                        <input type="submit" value="Submit Form" onclick="alert('check your data before submit')">
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Room_Details' %}">Show Department</a>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

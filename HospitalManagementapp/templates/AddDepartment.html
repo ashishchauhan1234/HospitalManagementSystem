@@ -1,0 +1,52 @@
+{% extends 'Main_Layout.html' %}
+{% block title %}
+    Department form
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Add new Department
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="form_table" cellSpacing='5' cellpadding="5">
+                {% if success %}
+                <tr id="success_msg">
+                    <th colspan="3">
+                        {{ success }}
+                    </th>
+                </tr>
+                {% endif %}
+
+                <tr id="required_msg">
+                    <th colspan="2">
+                        <span>*</span> All fields are required
+                    </th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.name.label }}</th>
+                    <th>{{ vdf.name }}</th> <th>{{ vdf.name.errors }}</th>
+                </tr>
+                <tr>
+                    <th>{{ vdf.head.label }}</th>
+                    <th>{{ vdf.head }}</th> <th>{{ vdf.head.errors}}</th>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="reset" value="Reset Form" onclick="alert('your page is refreshed')">
+                    </th>
+                    <th>
+                        <input type="submit" value="Submit Form" onclick="alert('Check date before submit')">
+                    </th>
+                    <th>
+                        <a href="{% url 'Show_Department_Details' %}">Show Department</a>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

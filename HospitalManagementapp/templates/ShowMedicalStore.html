@@ -1,0 +1,80 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    Medical Store Details
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Medical store Details
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="show-table" cellSpacing='5' cellpadding="5">
+                {% if ms_list %}
+                <tr>
+                    <th>S. No</th>
+                    <th>name</th>
+                    <th>buy cost</th>
+                    <th>sell cost</th>
+                    <th>quantity</th>
+                    <th>type</th>
+                    <th>manufacturing date</th>
+                    <th>expiring date</th>
+                    <th>Action</th>
+                </tr>
+                {% for ms in ms_list %}
+                <tr>
+                    <td >{{ ms.id }}.</td>
+                    <td style="width: 10%">{{ ms.name }}</td>
+                    <td style="width: 10%">{{ ms.buy_cost }}</td>
+                    <td style="width: 10%">{{ ms.sell_cost }}</td>
+                    <td style="width: 10%">{{ ms.quantity }}</td>
+                    <td style="width: 10%">{{ ms.type }}</td>
+                    <td style="width: 10%">{{ ms.mfd_date }}</td>
+                    <td style="width: 10%">{{ ms.exp_date }}</td>
+                    <td style="width: 10%">
+                        <a href="{% url 'Update_MedicalStore' ms.id %}">Update </a> ||
+                        <a href="{% url 'Delete_MedicalStore' ms.id %}">Delete </a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <th>No Record Found</th>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th colspan="3">
+                        <a href="{% url 'Medical_Store_Form' %}">Add new medicine</a>
+                    </th>
+                    <th colspan="6">
+                        {% if ms_list.has_previous %}
+
+                        <a href="?page=1">First</a> |
+                        <a href="?page={{ ms_list.previous_page_number }}">prev</a>
+
+                        {% endif %}
+                        page {{ ms_list.number }} of {{  ms_list.paginator.num_pages }}
+                        {% if ms_list.has_next %}
+
+                        <a href="?page={{ ms_list.next_page_number }}">next</a> |
+                        <a href="?page={{ ms_list.paginator.num_pages}}">Last</a>
+                        {% endif %}
+                    </th>
+                </tr>
+            </table>
+
+            <div class= 'button buy-medicine' >
+                <button>
+                    <a href="{% url 'Order_Medicine' %}">
+                        Buy Medicine
+                    </a>
+                </button>
+            </div>
+        </form>
+    </fieldset>
+{% endblock %}

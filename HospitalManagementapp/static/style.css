@@ -1,0 +1,293 @@
+#show-table{
+    width: 100%;
+    align-content: center;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    /*border: 3px solid #12121276;*/
+    box-shadow: 5px 4px 5px #243452;
+
+}
+#show-table tr{
+    height: 30px;
+}
+#show-table tr:first-child ,#show-table tr:last-child{
+    background-color: #23111165;
+    height: 40px;
+    /*border: 1px solid #12121276;*/
+}
+#show-table tr td{
+    border-right: 1px solid #121334 ;
+}
+#show-table tr th{
+    text-align: center;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+#show-table tr td:first-child,#show-table tr th:first-child{
+    width: 5%;
+}
+#show-table tr td{
+    text-align: center;
+    font-size: 15px;
+    text-transform: capitalize;
+    vertical-align: center;
+}
+#show-table tr:last-child th a{
+    color: #aaaaaa;
+}
+#show-table tr:last-child th:first-child:hover{
+    background: #12133498;
+    color: #eeeeee;
+}
+
+.buy-medicine{
+    text-align: center;
+    margin-bottom: 2%;
+}
+.buy-medicine button{
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+    background: #22156485;
+    color: #54a542;
+    font-weight: bold;
+}
+.buy-medicine button:hover{
+    background: #221564f5;
+    text-shadow: 3px 2px 5px black;
+}
+.buy-medicine button a:hover{
+    color: #9f9fff98;
+    font-size: 22px;
+}
+
+#form_table {
+    width: 80%;
+    font-size: 20px;
+    background: #33133365;
+    align-content: center;
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-bottom: 3%;
+    border: 3px solid #12121276;
+    box-shadow: 5px 4px 5px #243452;
+    text-transform: capitalize;
+}
+#form_table tr th{
+    color: #000;
+    font-weight: normal;
+    font-size: 15px;
+    height: 20px;
+}
+#form_table tr th:first-child{
+    width: 30%;
+    font-weight: bold;
+    height: 20px;
+    color: #200828;
+    padding-left: 5%;
+    font-size: 20px;
+}
+#form_table tr th:last-child{
+    color: #74f6f498;
+    font-size: 15px;
+}
+#form_table tr th #id_gender,#id_type{
+    color: #54a542;
+    vertical-align: center;
+    list-style: none;
+}
+#form_table tr:last-child th {
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #560;
+    padding-left: 0;
+    text-align: center;
+    background: #121334;
+}
+#form_table tr:last-child th input{
+    width: 250px;
+    background: #54554265;
+    padding:0 50px ;
+}
+#form_table tr:last-child th a{
+    color: #560;
+}
+#form_table #required_msg th{
+    width: 30%;
+    height: 20px;
+    color: #861233ae;
+    font-size: 15px;
+    padding: 1%;
+}
+#form_table #required_msg th span{
+    color: #f61212;
+    font-size: 20px;
+}
+#form_table #success_msg th{
+    color: #985423;
+    background:red;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    /*height: 20px;*/
+}
+#form_table tr:last-child th a:hover,#form_table tr:last-child th input:hover{
+    color: #90522395;
+    width: 250px;
+    font-size: 22px;
+    /*width: fit-content;*/
+}
+
+#login_form_table {
+    width: 50%;
+    font-size: 20px;
+    background: #33133365;
+    align-content: center;
+    margin-top: 1%;
+    margin-left: 25%;
+    margin-bottom: 3%;
+    border: 3px solid #12121276;
+    box-shadow: 5px 4px 5px #243452;
+    text-transform: capitalize;
+}
+#login_form_table .error_msg th{
+    height: 20px;
+    color: #861233ae;
+    font-size: 15px;
+    padding: 1%;
+}
+#login_form_table tr th{
+    color: #000;
+    font-weight: normal;
+    font-size: 15px;
+    height: 20px;
+}
+#login_form_table tr th:first-child{
+    width: 30%;
+    font-weight: bold;
+    height: 20px;
+    color: #200828;
+    padding-left: 5%;
+    font-size: 20px;
+}
+#login_form_table tr:last-child th {
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #560;
+    padding-left: 0;
+    text-align: center;
+    background: #121334;
+}
+#login_form_table tr:last-child th input{
+    width: 250px;
+    background: #54554265;
+    padding:0 50px ;
+}
+#login_form_table tr:last-child th a:hover,#login_form_table tr:last-child th input:hover{
+    color: #90522395;
+    width: 250px;
+    font-size: 22px;
+    /*width: fit-content;*/
+}
+
+#contact_detail {
+    width: 50%;
+    font-size: 20px;
+    background: #33133365;
+    align-content: center;
+    margin-top: 1%;
+    margin-left: 25%;
+    margin-bottom: 3%;
+    border: 3px solid #12121276;
+    box-shadow: 5px 4px 5px #243452;
+    text-transform: capitalize;
+}
+#contact_detail tr th{
+    color: #000;
+    font-weight: normal;
+    font-size: 15px;
+    height: 20px;
+}
+#contact_detail tr th:first-child{
+    width: 30%;
+    font-weight: bold;
+    height: 20px;
+    color: #200828;
+    padding-left: 5%;
+    font-size: 20px;
+}
+#contact,#address{
+    text-align: center;
+    text-decoration: underline;
+    padding:5px;
+}
+
+#payment_table {
+    width: 50%;
+    font-size: 20px;
+    background: #33133365;
+    align-content: center;
+    margin-top: 1%;
+    margin-left: 25%;
+    margin-bottom: 3%;
+    border: 3px solid #12121276;
+    box-shadow: 5px 4px 5px #243452;
+    text-transform: capitalize;
+}
+#payment_table tr{
+    height: 20px;
+    font-size: 20px;
+    padding: 2%;
+}
+#payment_table tr th:first-child {
+    width: 50%;
+    font-weight: bold;
+    height: 20px;
+    color: #200828;
+    padding-top: 2%;
+    padding-left: 5%;
+    font-size: 20px;
+}
+#payment_table tr td{
+    width: 50%;
+    height: 20px;
+    padding-top: 2%;
+    padding-left: 5%;
+    font-size: 18px;
+}
+#payment_table #form_render th{
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+#payment_table #form_render th form {
+    height: 150px;
+    padding-top: 3%;
+
+}
+#payment_table #form_render th form input{
+    height: 100px;
+}
+
+#payment_table tr:last-child th {
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #560;
+    padding-left: 0;
+    text-align: center;
+    background: #121334;
+}
+#payment_table tr:last-child th input{
+    width: 250px;
+    background: #54554265;
+    padding:0 50px ;
+}
+#payment_table tr:last-child th a:hover,#payment_table tr:last-child th input:hover{
+    color: #90522395;
+    width: 250px;
+    font-size: 22px;
+    /*width: fit-content;*/
+}

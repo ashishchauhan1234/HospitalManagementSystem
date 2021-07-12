@@ -1,0 +1,82 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    Doctors Details
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>
+            Doctor's Details
+        </legend>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            <table id="show-table"cellSpacing='5' cellpadding="5">
+            {% if doctor_list %}
+                <tr>
+                    <th style=" width: 10%" >S. No</th>
+                    <th style=" width: 10%" >Doctor Name</th>
+                    <th style=" width: 10%" >Date of Birth</th>
+                    <th style=" width: 10%" >Gender</th>
+                    <th style=" width: 10%" >Phone No</th>
+                    <th style=" width: 10%" >Email Id</th>
+                    <th style=" width: 10%" >Degree</th>
+                    <th style=" width: 10%" >Department</th>
+                    <th style=" width: 10%" >Address</th>
+                    <th style=" width: 10%" >Action</th>
+                </tr>
+                {% for doc in doctor_list %}
+                <tr>
+                    <td>{{ doc.id }}.</td>
+                    <td>{{ doc.name }}</td>
+                    <td>{{ doc.d_o_b }}</td>
+                    <td>{{ doc.gender }}</td>
+                    <td>{{ doc.phone }}</td>
+                    <td style="text-transform: lowercase">{{ doc.email }}</td>
+                    <td>{{ doc.degree }}</td>
+                    <td>{{ doc.department }}</td>
+                    <td>{{ doc.address }}</td>
+                    <td>
+                        <a href="{% url 'Update_Doctor' doc.id %}"
+                           onclick="alert('Are you want to update this data !!!')">Update </a> ||
+                        <a href="{% url 'Delete_Doctor' doc.id %}"
+                           onclick="alert('Are you want to delete this data !!!')">Delete </a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <th style=" width: 10%" >
+                        No Record found
+                    </th>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <th colspan="3">
+                        <a href= "{% url 'Doctor_Form' %}">Add New Doctor </a>
+                    </th>
+                    <th colspan="7">
+
+                        {% if doctor_list.has_previous %}
+
+                        <a href="?page=1">First</a> |
+                        <a href="?page={{ doctor_list.previous_page_number }}">prev</a>
+
+                        {% endif %}
+                        page {{ doctor_list.number }} of {{  doctor_list.paginator.num_pages }}
+                        {% if doctor_list.has_next %}
+
+                        <a href="?page={{ doctor_list.next_page_number }}">next</a> |
+                        <a href="?page={{ doctor_list.paginator.num_pages}}">Last</a>
+
+                        {% endif %}
+                    </th>
+                </tr>
+
+            </table>
+        </form>
+    </fieldset>
+{% endblock %}

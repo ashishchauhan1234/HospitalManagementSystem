@@ -1,0 +1,82 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    Login
+{% endblock %}
+{% block content %}
+    <fieldset>
+        <legend>Login form</legend>
+        <form method="post" action="{% url 'login' %}" >
+            {% csrf_token %}
+             <table id="login_form_table" cellSpacing=10 cellpadding="5">
+                {% if form.errors %}
+                <tr class="error_msg">
+                    <th colspan="2">
+                        username and password didn't match .. please try again later
+                    </th>
+                </tr>
+                {% endif %}
+
+                {% if next %}
+                    {% if not user.is_authenticated %}
+                    <tr>
+                        <th colspan="2">
+                            Please login to see the page
+                        </th>
+                    </tr>
+                    {% endif %}
+                {% endif %}
+                <tr style=" height:40px">
+                    <th colspan="2" style="font-size:12px;">
+                        <span style="color:#981212; font-size:20px">** &nbsp;</span>Your registered email Id is your
+                        user name <span style="color:#981212; font-size:20px">&nbsp;**</span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        {{ form.username.label_tag }}
+                    </th>
+                    <th>
+                        {{ form.username }}
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        {{ form.password.label_tag }}
+                    </th>
+                    <td>
+                        {{ form.password }}
+                    </td>
+                </tr>
+                <tr>
+                    <input type="hidden" name="next" value = '{{ next }}'>
+                    <th>
+                        <input type="reset" value="Cancel login" />
+                    </th>
+                    <th>
+                        <input type="submit" value="Login" />
+                    </th>
+                </tr>
+            </table>
+
+            <div class="col-lg-12" style="text-align: center;font-weight: bold" >
+                <p>if you forget your password.
+                    <span>
+                        <a href="{% url 'password_reset' %}"
+                       style="font-size: 15px; color:#251271; text-decoration: underline">Forget password</a>
+                    </span>
+                </p>
+            </div>
+            <div class="col-lg-12" style="text-align: center;font-weight: bold" >
+                <p>if you are new User.
+                    <span>
+                        <a href="{% url 'Admin_Form' %}" style="font-size: 18px">Register now</a>
+                    </span>
+                </p>
+            </div>
+
+        </form>
+    </fieldset>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'Main_Layout.html' %}
+{% load static %}
+
+{% block title %}
+    user Logout
+{% endblock %}
+{% block content %}
+    <fieldset>
+        <legend>Logout form</legend>
+        <h1>
+            Logged out !!!!
+        </h1>
+        <a href="{% url 'login' %}">Click here to login </a>
+    </fieldset>
+{% endblock %}

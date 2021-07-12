@@ -1,0 +1,18 @@
+{% extends 'Main_Layout.html' %}
+{% block title %}
+    Payment Cancelled
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>Proceed Cancelled</legend>
+        <div id="form_table">
+            <div>{{ pay }}</div>
+            we are sorry to inform you that the payment was not proceed, please try again
+            <div align="center">
+                <a href="{% url 'Show_Checkout_Details' %}" align="center">Show Checkout Details</a>
+            </div>
+        </div>
+    </fieldset>
+
+{% endblock %}

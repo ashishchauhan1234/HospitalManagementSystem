@@ -1,0 +1,171 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <title>Hospital Management System</title>-->
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel = "icon" href = "{% static 'images/icon-1.png' %}" type = "image/x-icon">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background: radial-gradient(  #65345694, #53242387, #251515e8) no-repeat;
+            cursor: context-menu;
+            margin-top: 15px;
+        }
+
+        /*starting header styling*/
+        nav>div,nav {
+            height: 160px;
+        }
+
+        nav>div{
+            width: 100%;
+            color: #ffffff65;
+            font-family: "Times New Roman", sans-serif;
+            text-transform: capitalize;
+            font-weight: bold;
+            border: 15px solid;
+            border-top: 5px solid;
+            border-bottom: 25px solid;
+            border-color: #935353 #23232382;
+            background: #23141397;
+            padding:1%;
+        }
+
+        nav>div>div:first-child{
+            font-size: 50px;
+            text-shadow: black 2px 5px 5px;
+            margin-bottom: 5px;
+        }
+
+        nav>div>div:last-child>ul:last-child>li>a{
+            width: 250px;
+            color: #13131397;
+            font-size:20px;
+            padding-right: 0;
+            padding-bottom: 2px;
+        }
+
+        .navbar-nav li a:first-child{
+            color: #331303e8;
+            font-size: 25px;
+            padding: 10px;
+            width: 220px;
+            text-align: center;
+            background: linear-gradient(90deg,#46323126,#f8a0a942,#46323122);
+            margin: 0;
+        }
+
+        .navbar-nav li a:hover{
+            color: #331333;
+            background: #45212146;
+            box-shadow: 2px 1px 5px #231111;
+        }
+
+        /* end header styling*/
+        /* Remove the navbar's default margin-bottom and rounded borders */
+
+        /* Add a gray background color and some padding to the footer */
+
+        /*starting home content styling*/
+
+        .carousel-inner img {
+            width: 30%; /* Set width to 100% */
+            margin: auto;
+            min-height:200px;
+        }
+
+        .row div img:hover{
+            box-shadow: 3px 2px 5px #232323;
+        }
+
+        .row div a:hover{
+            font-weight: bold;
+        }
+
+        #myCarousel{
+            background: linear-gradient(to right,#98585876,#ffffff,#ffffff,#98585876)
+        }
+
+        .text-center hr{
+            height: 5px;
+            width: 100%;
+            background: #0a232e76;
+            box-shadow: 2px 3px 5px #342443;
+        }
+        .row div img{
+            width:100%;
+            height: 245px;
+        }
+        .row div a{
+            font-size: 20px ;
+            color: #632323;
+        }
+
+        /* Hide the carousel text when the screen is less than 600 pixels wide */
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+
+
+        /*styling of footer part*/
+        footer {
+            width: 99%;
+            font-size: 20px;
+            border: 2px solid #643545;
+            border-top: 10px solid #643545;
+            border-radius: 10%;
+            overflow: hidden;
+            background: #4a231e43;
+            padding: 5px;
+            margin: 10px;
+            color: #121334;
+        }
+
+        #date{
+            color: #2434a2;
+            font-size: 15px;
+            text-decoration: underline;
+            text-align: right;
+            margin-top: 4%;
+            margin-right: 2%;
+        }
+
+        /* ending footer style*/
+
+    </style>
+
+</head>
+
+<body class="container-fluid">
+<!--Start Header part-->
+{% include 'Header.html' %}
+
+<!--Start body part-->
+<div class="container-fluid">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!--Footer part-->
+{% include 'Footer.html' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById("date").innerHTML = Date();
+</script>
+
+</body>
+</html>
